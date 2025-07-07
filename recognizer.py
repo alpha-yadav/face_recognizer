@@ -1,13 +1,12 @@
 import cv2
 import sqlite3 as sql
 recognizer = cv2.face.LBPHFaceRecognizer_create()
-recognizer.read("face_model.yml")
+recognizer.read("trained_data.yml")
 sql_connection = sql.connect('DB/face.db')
 cursor = sql_connection.cursor()
-cursor.execute("SELECT name FROM faces")
+cursor.execute("SELECT name FROM users")
 names = cursor.fetchall()
-names = set([name[0] for name in names])  # Flatten the list of tuples
-names = list(names)  # Convert to a list for indexing
+names = [name[0] for name in names if name[0]]  # Ensure
 if not names:
     raise ValueError("No names found in the database. Please collect faces first.")
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
@@ -27,7 +26,7 @@ while True:
             name = names[label]
             color = (0, 125, 0)
         else:
-            name = "Unknown"
+            name = "X"
             color = (0, 0, 125)
 
         cv2.putText(frame, f"{name}", (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, color, 2)
