@@ -7,11 +7,11 @@ pip install -r requirements.txt
 ```bash
 python collector.py
 ```
-## 2. Train
+## 3. Train
 ```bash
-python trainer.pyt
+python trainer.py
 ```
-## 3.
+## 4.
 ```bash
 python recognizer.py
 ```
