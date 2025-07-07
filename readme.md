@@ -11,7 +11,7 @@ python collector.py
 ```bash
 python trainer.py
 ```
-## 4.
+## 4.  Recognition
 ```bash
 python recognizer.py
 ```
