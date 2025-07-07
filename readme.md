@@ -3,15 +3,12 @@
 ```bash
 pip install -r requirements.txt
 ```
-## 2. Collector
+## 2. Collection and Train
 ```bash
 python collector.py
-```
-## 3. Train
-```bash
 python trainer.py
 ```
-## 4.  Recognition
+## 3.  Recognition
 ```bash
 python recognizer.py
 ```
